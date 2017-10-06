@@ -21,6 +21,7 @@ namespace test
         public void SortShouldOrderResults()
         {
             var range = new Range {Count =3, Sort = true};
+            
             var values = new[] {"a","b","c"};
             var counter = 0;
             var generated = range.Of(() => values[counter++]);
