@@ -1,10 +1,12 @@
-version: '3'
+version: '3.3'
 
 services:
   generator:
     image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-9}
-    ports:
-      - "${PORT_GENERATOR-80}:80"
     environment:
       MAILSERVER__HOST: "somewhere"
       MAILSERVER__PORT: 25
+  proxy:
+    image: nginx
+    ports:
+      - "${PORT_GENERATOR-80}:80"
